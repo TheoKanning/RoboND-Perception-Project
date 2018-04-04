@@ -247,16 +247,16 @@ def pr2_mover(object_list):
         try:
             pick_place_routine = rospy.ServiceProxy('pick_place_routine', PickPlace)
 
-            # TODO: Insert your message variables to be sent as a service request
-            # resp = pick_place_routine(test_num, object_name, arm_name, pick_pose, pick_pose)
+            # Insert your message variables to be sent as a service request
+            resp = pick_place_routine(test_num, object_name, arm_name, pick_pose, pick_pose)
 
-           #  print ("Response: ",resp.success)
+            print ("Response: ",resp.success)
 
         except rospy.ServiceException, e:
             print "Service call failed: %s"%e
 
     # Output your request parameters into output yaml file
-    send_to_yaml('dumb_yaml.yaml', dict_list) 
+    send_to_yaml('output_1.yaml', dict_list) 
 
 
 if __name__ == '__main__':
